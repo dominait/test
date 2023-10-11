@@ -4,7 +4,7 @@ export async function  generateStaticParams() {
   const courses = await res.json()
 
   return courses.map((course) => ( 
-       {cid:course.cid}
+       {id:course.cid}
   ));
  
   
@@ -17,32 +17,32 @@ async function getCourse ( cid ){
   return courses
    
 }
-async function CourseCard({ cid, details }) {
-  const { type, title, shortDescription, img } = details;
- 
+async function CourseCard({ cid, details, ...rest }) {
+ const { type, title, shortDescription, img } = details;
+   console.log(type)
   return (
     <aside className="   ">
-      <img className=" " src={img} alt={title} />
+    <img className=" " src={img} alt={title} />
 
-      <div className="py-8 px-8 bg-slate-50">
-        <header>
-          <h2 className="text-xl font-semibold">{title}</h2>
-        </header>
+    <div className="py-8 px-8 bg-slate-50">
+      <header>
+        <h2 className="text-xl font-semibold">{title}</h2>
+      </header>
 
-        <p className="text-slate-500">{shortDescription}</p>
-        <Link className="text-blue-600 font-semibold" href={`/course/${cid}`}>full course outline</Link>
-        <footer className="py-5">
-          <ul className="text-xs flex gap-x-3">
-            <li className={`rounded ${styleTypes(type)} py-0.5 px-2`}> {type} </li>
-            <li>{cid}</li>
-            <li>instructor</li>
-            <li>views</li>
-            <li>ratings</li>
-            <li>comments</li>
-          </ul>
-        </footer>
-      </div>
-    </aside>
+      <p className="text-slate-500">{shortDescription}</p>
+      <Link className="text-blue-600 font-semibold" href={`/course/${cid}`}>full course outline</Link>
+      <footer className="py-5">
+        <ul className="text-xs flex gap-x-3">
+          <li className={`rounded ${styleTypes(type)} py-0.5 px-2`}> {type} </li>
+          <li>{cid}</li>
+          <li>instructor</li>
+          <li>views</li>
+          <li>ratings</li>
+          <li>comments</li>
+        </ul>
+      </footer>
+    </div>
+  </aside>
   );
 }
 

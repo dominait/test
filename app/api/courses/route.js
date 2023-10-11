@@ -1,10 +1,11 @@
-import { getAllCourses } from "@/app/lib/controllers/getAllCourses"
+import courses from '@/app/data/courses.json' assert {type: 'json'}
 
 
 async function GET (req, {params}) {
-  const courses = await getAllCourses()
-  const pathname = req.nextUrl.pathname
-  const method = req.method
+ 
+  // const pathname = req.nextUrl.pathname
+  // const method = req.method
+  
  
   return Response.json(courses)
 }
