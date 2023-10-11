@@ -19,7 +19,7 @@ async function getCourse ( cid ){
 }
 async function CourseCard({ cid, details, ...rest }) {
  const { type, title, shortDescription, img } = details;
-   console.log(type)
+ 
   return (
     <aside className="   ">
     <img className=" " src={img} alt={title} />
