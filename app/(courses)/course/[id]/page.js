@@ -4,7 +4,7 @@ export async function  generateStaticParams() {
   const courses = await res.json()
 
   return courses.map((course) => ( 
-       {id:course.cid}
+       {cid:course.cid}
   ));
  
   
@@ -64,17 +64,17 @@ function styleTypes(type){
 }
  async function CoursePage ({params} )  {
    const {cid} = params
-   const course = await getCourse(cid)
+   const course = await getCourse(params.id)
  
  
   return (
     <>
-    <p>{id}</p>
+   
       
-{/*     
+     
         <header>
           <h1>Single Course</h1>
-          <p>course: {id}</p>
+          <p>course: {cid}</p>
         </header>
 
         <main>
@@ -82,7 +82,7 @@ function styleTypes(type){
           <CourseCard {...course}/> 
         
         </main>
-     */}
+    
     
        
       </>
