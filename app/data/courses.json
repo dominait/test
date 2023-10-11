@@ -1,0 +1,81 @@
+[{
+  "cid": "e25ce8ba",
+  "details": {
+    "title": "React Hooks in Depth",
+    "type": "react",
+    "shortDescription": "porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat",
+    "img": "/courses/react.jpg"
+  }
+}, {
+  "cid": "25f6f271",
+  "details": {
+    "title": "JavaScript Essentials",
+    "type": "javascript",
+    "shortDescription": "ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a",
+    "img": "/courses/javascript.jpg"
+  }
+}, {
+  "cid": "6328143e",
+  "details": {
+    "title": "Python Data Visualization",
+    "type": "python",
+    "shortDescription": "eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien",
+    "img": "/courses/python.jpg"
+  }
+}, {
+  "cid": "5db4b9a7",
+  "details": {
+    "title": "Building GraphQL APIs with Node.js",
+    "type": "graphql",
+    "shortDescription": "odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea",
+    "img": "/courses/graphql.jpg"
+  }
+}, {
+  "cid": "e58bd30a",
+  "details": {
+    "title": "JavaScript Fundamentals",
+    "type": "javascript",
+    "shortDescription": "ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus",
+    "img": "/courses/javascript.jpg"
+  }
+}, {
+  "cid": "8ecc4207",
+  "details": {
+    "title": "Mastering React Components",
+    "type": "react",
+    "shortDescription": "nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget",
+    "img": "/courses/react.jpg"
+  }
+}, {
+  "cid": "843bf13f",
+  "details": {
+    "title": "Advanced React Patterns",
+    "type": "react",
+    "shortDescription": "odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed",
+    "img": "/courses/react.jpg"
+  }
+}, {
+  "cid": "c71973c9",
+  "details": {
+    "title": "React Hooks in Depth",
+    "type": "react",
+    "shortDescription": "tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor",
+    "img": "/courses/react.jpg"
+  }
+}, {
+  "cid": "8290d6cb",
+  "details": {
+    "title": "React State Management",
+    "type": "react",
+    "shortDescription": "diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut",
+    "img": "/courses/react.jpg"
+  }
+}, {
+  "cid": "afb3a66b",
+  "details": {
+    "title": "Mastering JavaScript",
+    "type": "javascript",
+    "shortDescription": "iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio",
+    "img": "/courses/javascript.jpg"
+  }
+}]

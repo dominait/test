@@ -1,15 +1,25 @@
 import Link from "next/link";
+export async function  generateStaticParams() {
+  const res = await fetch(` http://localhost:3000/api/courses` );
+  const courses = await res.json()
 
-async function getCourses() {
-  const res = await fetch("http://localhost:3000/api/courses");
-  const courses = await res.json();
+  return courses.map((course) => ( 
+       {id:course.cid}
+  ));
+ 
+  
+} 
 
-  return courses;
+async function getCourse ( cid ){
+  const res = await fetch(` http://localhost:3000/api/course/${cid}` );
+  const courses = await res.json()
+
+  return courses
+   
 }
-
 async function CourseCard({ cid, details }) {
   const { type, title, shortDescription, img } = details;
-  
+ 
   return (
     <aside className="   ">
       <img className=" " src={img} alt={title} />
@@ -45,44 +55,40 @@ function styleTypes(type){
     vids.set('graphql', 'bg-pink-300 text-pink-700')
     vids.set('python', 'bg-violet-300 text-violet-700')
     vids.set('react', 'bg-blue-300 text-blue-700')
-    
+   
+       
     return vids.get(type)
   
  
 
 }
-async function Message({ message }) {
+ async function CoursePage ({params} )  {
+   const {cid} = params
+   const course = await getCourse(cid)
  
-  if (message) {
-    return (
-      <div>
-        <h3>Data File Path</h3>
-        <p className="text-xs">{message}</p>
-      </div>
-    );
-  }
-
-  return null;
-}
-
-async function CoursesPage() {
-  const courses = await getCourses();
  
-
-  if (courses) {
-    return (
-      <>
-        <header className="w-fit">
-          <h1 className="text-4xl font-semibold">Courses</h1>
+  return (
+    <>
+    <p>{id}</p>
+      
+{/*     
+        <header>
+          <h1>Single Course</h1>
+          <p>course: {id}</p>
         </header>
-        {courses.map((course) => (
-          <CourseCard key={course.cid} {...course} />
-        ))}
+
+        <main>
+        
+          <CourseCard {...course}/> 
+        
+        </main>
+     */}
+    
+       
       </>
     );
-  }
-
-  return null;
+ 
 }
 
-export default CoursesPage;
+ 
+export default CoursePage
