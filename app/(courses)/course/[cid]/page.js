@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { readFile } from "fs/promises";
 
 export async function  generateStaticParams() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/course` );
-  const courses = await res.json()
+  const filePath = process.cwd()+'/app/data/courses.json'
+  const fileContents = await readFile(filePath, 'utf-8')
+  const courses = JSON.parse(fileContents)
 
   return courses.map((course) => ( 
        {cid:course.cid}
@@ -12,13 +14,15 @@ export async function  generateStaticParams() {
   
 } 
 
-async function getCourse ( cid ){
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/course/${cid}` );
-  const courses = await res.json()
+// async function getCourse ( cid ){
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/course/${cid}` );
+//   const courses = await res.json()
 
-  return courses
+//   return courses
    
-}
+// }
+
+
 
 async function CourseCard({ cid, details, ...rest }) {
  const { type, title, shortDescription, img } = details;
@@ -50,9 +54,6 @@ async function CourseCard({ cid, details, ...rest }) {
 }
 
 function styleTypes(type){
- 
-        
-
     const vids = new Map()
     vids.set('javascript', 'bg-yellow-300 text-yellow-700')
     vids.set('graphql', 'bg-pink-300 text-pink-700')
@@ -65,22 +66,45 @@ function styleTypes(type){
  
 
 }
- async function CoursePage ({params:{cid}} )  {
+
+
+async function getCourses(id){
+  const filePath = process.cwd()+'/app/data/courses.json'
+  const fileContents = await readFile(filePath, 'utf-8')
+  const courses = JSON.parse(fileContents)
+
+  const course = courses.find(item=> item.cid === id)
+  return course
 
   
-  const course = await getCourse(cid)
+  
 
-  if(!course){
-    notFound()
-  }
+  // const course = courses.find(course=> course.cid === id)
+
+}
+
+
+
+ async function CoursePage ({params} )  {
+  const id = params.cid
+  
+  const {cid, details} =  await getCourses(id)
+  const {title, type, shortDescription, img} = details
+
+ 
  
  
   return (
     <>
    
-      
-       
-        <header>
+      <ul className="max-w-sm">
+      <li>{id}</li>
+      <li>{title}</li>
+      <li>{type}</li>
+      <li>{shortDescription}</li>
+       <li><img src={img} alt="" /></li>
+      </ul>
+        {/* <header>
           <h1>Single Course</h1>
           <p>course: {cid}</p>
         </header>
@@ -89,7 +113,7 @@ function styleTypes(type){
         
           <CourseCard {...course}/> 
         
-        </main>
+        </main> */}
      
     
        
