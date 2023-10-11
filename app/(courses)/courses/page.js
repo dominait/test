@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 async function getCourses() {
-  const res = await fetch("http://localhost:3000/api/courses");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/courses`);
   const courses = await res.json();
 
   return courses;
@@ -68,7 +68,7 @@ async function Message({ message }) {
 async function CoursesPage() {
   const courses = await getCourses();
  
-
+ 
   if (courses) {
     return (
       <>

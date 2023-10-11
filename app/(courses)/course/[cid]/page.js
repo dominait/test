@@ -2,7 +2,7 @@ import Link from "next/link";
 
 
 export async function  generateStaticParams() {
-  const res = await fetch(` http://localhost:3000/api/courses` );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/course` );
   const courses = await res.json()
 
   return courses.map((course) => ( 
@@ -13,7 +13,7 @@ export async function  generateStaticParams() {
 } 
 
 async function getCourse ( cid ){
-  const res = await fetch(` http://localhost:3000/api/course/${cid}` );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/course/${cid}` );
   const courses = await res.json()
 
   return courses

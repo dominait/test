@@ -1,8 +1,10 @@
-import courses from '@/app/data/courses.json' assert {type: 'json'}
+import courses from '@/app/api/course/test.json' assert {type: 'json'}
 async function GET (req, {params}) {
-  const cid = params.cid
-   const course = courses.find(course=> course.cid ===  cid)
-  return Response.json( course )
+  const cid = params.cid 
+ 
+  const course = courses.find(course=> course.id == cid)
+  console.log(course)
+  return Response.json( course)
 }
 
 export {GET}
