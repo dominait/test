@@ -1,4 +1,6 @@
 import Link from "next/link";
+
+
 export async function  generateStaticParams() {
   const res = await fetch(` http://localhost:3000/api/courses` );
   const courses = await res.json()
