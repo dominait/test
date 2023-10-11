@@ -1,11 +1,16 @@
 import Link from "next/link";
 
-async function getCourses() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/courses`);
-  const courses = await res.json();
+import { readFile } from "fs/promises";
 
-  return courses;
-}
+ async function  getCourses() {
+  const filePath = process.cwd()+'/app/data/courses.json'
+  const fileContents = await readFile(filePath, 'utf-8')
+  const courses = JSON.parse(fileContents)
+
+  return courses 
+ 
+  
+} 
 
 async function CourseCard({ cid, details }) {
   const { type, title, shortDescription, img } = details;
