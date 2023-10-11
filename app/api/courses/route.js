@@ -1,12 +1,10 @@
-import courses from '@/app/data/courses.json' assert {type: 'json'}
-
-
+import { promises as fs } from 'fs';
 async function GET (req, {params}) {
  
-  // const pathname = req.nextUrl.pathname
-  // const method = req.method
-  
+  let courses= await fs.readFile(process.cwd() + '/app/data/courses.json', 'utf8');
  
+ 
+    
   return Response.json(courses)
 }
 
