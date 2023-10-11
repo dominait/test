@@ -64,7 +64,7 @@ function styleTypes(type){
 }
  async function CoursePage ({params} )  {
    const {cid} = params
-   const course = await getCourse(params.id)
+   const course = await getCourse(cid)
  
  
   return (
