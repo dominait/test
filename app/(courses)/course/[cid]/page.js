@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { notFound } from "next/navigation";
 
 export async function  generateStaticParams() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/course` );
@@ -69,6 +69,10 @@ function styleTypes(type){
 
   
   const course = await getCourse(cid)
+
+  if(!course){
+    notFound()
+  }
  
  
   return (
