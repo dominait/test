@@ -6,7 +6,7 @@ export async function  generateStaticParams() {
   const courses = await res.json()
 
   return courses.map((course) => ( 
-       {id:course.cid}
+       {cid:course.cid}
   ));
  
   
@@ -19,6 +19,7 @@ async function getCourse ( cid ){
   return courses
    
 }
+
 async function CourseCard({ cid, details, ...rest }) {
  const { type, title, shortDescription, img } = details;
  
@@ -64,16 +65,17 @@ function styleTypes(type){
  
 
 }
- async function CoursePage ({params} )  {
-   const {cid} = params
-   const course = await getCourse(cid)
+ async function CoursePage ({params:{cid}} )  {
+
+  
+  const course = await getCourse(cid)
  
  
   return (
     <>
    
       
-     
+       
         <header>
           <h1>Single Course</h1>
           <p>course: {cid}</p>
@@ -84,7 +86,7 @@ function styleTypes(type){
           <CourseCard {...course}/> 
         
         </main>
-    
+     
     
        
       </>
@@ -94,3 +96,11 @@ function styleTypes(type){
 
  
 export default CoursePage
+
+ 
+
+ 
+
+ 
+ 
+ 
